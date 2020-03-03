@@ -1138,7 +1138,7 @@ option {
 #logo {
     font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif !important;
     color: white !important;
-    margin-top:1rem !important;
+    margin-bottom: 0;
 }
 
 .searchbox i {
@@ -1167,3 +1167,7 @@ option {
     margin-top: 25px !important;
     display: inline-block !important;
   }
+
+#logo-pic {
+    height: 60px !important;
+}

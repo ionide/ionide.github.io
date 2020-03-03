@@ -73,6 +73,7 @@ let menu (ctx : SiteContents) =
     div [Id "header-wrapper"] [
       div [Id "header"] [
         h2 [Id "logo"] [!! siteInfo.title]
+        img [Id "logo-pic"; Src "/static/images/logo.png"]
       ]
       div [Class "searchbox"] [
         label [Custom("for", "search-by")] [i [Class "fas fa-search"] []]
