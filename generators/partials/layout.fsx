@@ -44,6 +44,12 @@ let layout (ctx : SiteContents) bodyCnt (page: string) =
             div [Id "overlay"] []
             div [ Class "padding highlightable"] [
               div [Id "body-inner"] [
+                span [Id "sidebar-toggle-span"] [
+                  a [Href "#"; Id "sidebar-toggle"; Custom("data-sidebar-toggle", "") ] [
+                    i [Class "fas fa-bars"] []
+                    !! " navigation"
+                  ]
+                ]
                 yield! bodyCnt
               ]
             ]
