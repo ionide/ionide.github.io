@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Restore tools
+      run: dotnet tool restore
+    - name: Install Fornax
+      run: dotnet tool install fornax --tool-path .
+    - name: Run Paket
+      run: dotnet paket restore
+    - name: Run Fornax
+      run: fornax build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        publish_dir: ./_public
+        publish_branch: master
+        force_orphan: true
+        user_name: Krzysztof-Cieslak
+        user_email: krzysztof_cieslak@windowslive.com
