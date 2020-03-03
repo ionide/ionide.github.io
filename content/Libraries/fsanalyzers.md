@@ -8,7 +8,7 @@ menu_order: 1
 **GitHub link:** [https://github.com/ionide/FSharp.Analyzers.SDK](https://github.com/ionide/FSharp.Analyzers.SDK)
 **License:** [MIT](https://github.com/ionide/FSharp.Analyzers.SDK/blob/master/LICENSE.md)
 
-`FSharp.Analyzers.SDK` is a library used for building custom analyzers for FSAC / F# editors. F# analyzers are live, real-time, project based plugins that enables to diagnose source code and surface custom errors, warnings and code fixes into editor. They're heavily influenced and inspired by [Roslyn Analyzers](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019).
+`FSharp.Analyzers.SDK` is a library used for building custom analyzers for FSAC / F# editors. F# analyzers are live, real-time, project-based plugins that enables diagnosis of source code and surfacing of custom errors, warnings and code fixes into the editor. They're heavily influenced and inspired by [Roslyn Analyzers](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019).
 
 Read more about F# Analyzers here - [https://medium.com/lambda-factory/introducing-f-analyzers-772487889429](https://medium.com/lambda-factory/introducing-f-analyzers-772487889429)
 
@@ -32,7 +32,7 @@ Notice how we expose the function `BadCodeAnalyzer.badCodeAnalyzer` with an attr
 
 ### Analyzer Requirements
 
-Analyzers are .NET core class libraries and they are distributed as such. However, since the SDK relies on dynamically loading the analyzers during runtime, there are some requirements to get them to work properly:
+Analyzers are .NET Core class libraries and they are distributed as such. However, since the SDK relies on dynamically loading the analyzers during runtime, there are some requirements to get them to work properly:
  - The analyzer class library has to target the `netcoreapp2.0` framework
  - The analyzer has to reference the latest `FSharp.Analyzers.SDK` (at least the version used by FsAutoComplete which is subsequently used by Ionide)
 
@@ -44,7 +44,7 @@ Since analyzers are just .NET core libraries, you can distribute them to the nug
 dotnet nuget push {NugetPackageFullPath} -s nuget.org -k {NugetApiKey}
 ```
 
-However, the story is different and slightly more complicated when your analyzer package has third-party dependencies also coming from nuget. Since the SDK dynamically loads the package assemblies (`.dll` files), the assemblies of the dependencies has be there *next* to the main assembly of the analyzer. Using `dotnet pack` will **not** include these dependencies into the output Nuget package. More specifically, the `./lib/netcoreapp2.0` directory of the nuget package must have all the required assemblies, also those from third-party packages. In order to package the analyzer properly with all the assemblies, you need to take the output you get from running:
+However, the story is different and slightly more complicated when your analyzer package has third-party dependencies also coming from nuget. Since the SDK dynamically loads the package assemblies (`.dll` files), the assemblies of the dependencies has be located *next* to the main assembly of the analyzer. Using `dotnet pack` will **not** include these dependencies into the output Nuget package. More specifically, the `./lib/netcoreapp2.0` directory of the nuget package must have all the required assemblies, also those from third-party packages. In order to package the analyzer properly with all the assemblies, you need to take the output you get from running:
 
 ```
 dotnet publish --configuration Release --framework netcoreapp2.0
