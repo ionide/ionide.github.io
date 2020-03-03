@@ -30,3 +30,4 @@ jobs:
         force_orphan: true
         user_name: Krzysztof-Cieslak
         user_email: krzysztof_cieslak@windowslive.com
+        cname: ionide.io
