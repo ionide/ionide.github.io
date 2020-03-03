@@ -17,12 +17,10 @@ jobs:
         dotnet-version: 3.1.101
     - name: Restore tools
       run: dotnet tool restore
-    - name: Install Fornax
-      run: dotnet tool install fornax --tool-path .
     - name: Run Paket
       run: dotnet paket restore
     - name: Run Fornax
-      run: fornax build
+      run: dotnet fornax build
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
