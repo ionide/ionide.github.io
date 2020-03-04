@@ -72,7 +72,7 @@ let menu (ctx : SiteContents) =
   nav [Id "sidebar"] [
     div [Id "header-wrapper"] [
       div [Id "header"] [
-        h2 [Id "logo"] [!! siteInfo.title]
+        h1 [Id "logo"] [!! siteInfo.title]
         img [Id "logo-pic"; Src "/static/images/logo.png"]
       ]
       div [Class "searchbox"] [
