@@ -5,7 +5,7 @@ menu_order: 1
 
 # Ionide-VSCode
 
-**GitHub link:** [https://github.com/ionide/Ionide-vim](https://github.com/ionide/Ionide-vscode-fsharp)
+**GitHub link:** [https://github.com/ionide/Ionide-vscode-fsharp](https://github.com/ionide/Ionide-vscode-fsharp)
 **License:** [MIT](https://github.com/ionide/Ionide-vscode-fsharp/blob/master/LICENSE.md)
 
 Ionide is a [Visual Studio Code](https://code.visualstudio.com/) package suite for cross platform F# development.
