@@ -1,5 +1,5 @@
 ---
-title: FSharp.Analyzers.SDK
+title: Waypoint
 menu_order: 1
 ---
 
