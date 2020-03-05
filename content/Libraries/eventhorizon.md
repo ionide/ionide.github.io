@@ -1,6 +1,6 @@
 ---
 title: Ionide.EventHorizon
-menu_order: 2
+menu_order: 3
 ---
 
 # Ionide.EventHorizon

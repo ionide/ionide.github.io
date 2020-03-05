@@ -1,6 +1,6 @@
 ---
 title: FSharp.Analyzers.SDK
-menu_order: 1
+menu_order: 2
 ---
 
 # FSharp.Analyzers.SDK
