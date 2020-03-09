@@ -7,7 +7,7 @@ menu_order: 1
 
 <img heigh="100" width="100" src="static/images/logo.png" />
 
-Ionide is an organization which builds **high quality, cross platform developer tools for F#**. Our flagship project is Ionide-VSCode - a Visual Studio Code plugin, with more than 1 million downloads, transforming VSCode into a **fully-fledged F# IDE**. But Ionide is more then just an editor plugin - we build a whole ecosystem of developer tools - from a [documentation generator](Tools/fornax.html), to an [F# LSP server](Tools/fsac.html), to experimental and innovative projects like [F# Analyzers](Libraries/fsanalyzers.html).
+Ionide is an organization which builds **high quality, cross platform developer tools for F#**. Our flagship project is Ionide-VSCode - a Visual Studio Code plugin, with more than 1 million downloads, transforming VSCode into a **fully-fledged F# IDE**. But Ionide is more than just an editor plugin - we build a whole ecosystem of developer tools - from a [documentation generator](Tools/fornax.html), to an [F# LSP server](Tools/fsac.html), to experimental and innovative projects like [F# Analyzers](Libraries/fsanalyzers.html).
 
 <img class="gif" src="static/images/fsharp.gif" />
 
