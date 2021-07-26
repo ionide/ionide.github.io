@@ -28,6 +28,30 @@ You can also open the Settings editor from the Command Palette (`Ctrl+Shift+P`) 
 Read more about settings in VSCode in [VSCode documentation](https://code.visualstudio.com/docs/getstarted/settings)
 
 ---
+#### `FSharp.fsac.dotnetArgs`
+
+Additional CLI arguments that will be provided to the dotnet runtime when running FSAC
+
+**Type:** `string []`
+
+**Default:** `[ ]`
+
+> Note: to enable .Net 6 support for FSAC at the present time, you should set this option to specify the .net 6 runtime specifically:
+>
+> ```json
+>   "FSharp.fsac.dotnetArgs": ["--fx-version", "<dotnet runtime version>"]
+> ```
+>
+> The specific version you should pick can be found by running the `dotnet --list-runtimes` command:
+> 
+> ```
+> Microsoft.AspNetCore.App 5.0.7 [/usr/local/share/dotnet/shared/Microsoft.AspNetCore.App]
+> Microsoft.NETCore.App 6.0.0-preview.6.21352.12 [/usr/local/share/dotnet/shared/Microsoft.NETCore.App]
+> ```
+>
+> Here, you would use the version `6.0.0-preview.6.21352.12`
+
+---
 
 #### `FSharp.fsac.netCoreDllPath`
 
@@ -39,19 +63,9 @@ The path to the `fsautocomplete.dll`, useful for debugging a self-built fsac.
 
 ---
 
-#### `FSharp.fsac.netExePath`
-
-The path to the `fsautocomplete.exe`, useful for debugging a self-built fsac.
-
-**Type:** `string`
-
-**Default:** ` `
-
----
-
 #### `FSharp.fsac.attachDebugger`
 
-Appends the '--attachdebugger' argument to fsac, this will allow you to attach the debugger.
+Appends the '--attachdebugger' argument to fsac, this will allow you to attach a debugger.
 
 **Type:** `bool`
 
@@ -59,17 +73,13 @@ Appends the '--attachdebugger' argument to fsac, this will allow you to attach t
 
 ---
 
-#### `FSharp.fsacRuntime`
+#### `FSharp.fsac.silencedLogs`
 
-Choose the runtime of FsAutocomplete (FSAC). Requires restart.
+An array of log categories for FSAC to filter out. These can be found by viewing your log output and noting the text in between the brackets in the log line. For example, in the log line `[16:07:14.626 INF] [Compiler] done compiling foo.fsx`, the category is 'Compiler'.
 
-**Type:** `enum`
+**Type:** `string []`
 
-**Possible values:**
- * `net`
- * `netcore`
-
-**Default:** `netcore`
+**Default:** `[ ]`
 
 ---
 
@@ -80,26 +90,6 @@ The deep level of directory hierarchy when searching for sln/projects
 **Type:** `int`
 
 **Default:** `4`
-
----
-
-#### `FSharp.monoPath`
-
-The path to Mono executable
-
-**Type:** `string`
-
-**Default:** `mono`
-
----
-
-#### `FSharp.fsiFilePath`
-
-The path to the F# Interactive tool used by Ionide-FSharp
-
-**Type:** `string`
-
-**Default:** ` `
 
 ---
 
@@ -115,7 +105,7 @@ Includes keywords in autocomplete
 
 #### `FSharp.externalAutocomplete`
 
-Includes external (from unopen modules and namespaces) symbols in autocomplete
+Includes external (from unopened modules and namespaces) symbols in autocomplete
 
 **Type:** `bool`
 
@@ -125,7 +115,7 @@ Includes external (from unopen modules and namespaces) symbols in autocomplete
 
 #### `FSharp.linter`
 
-Enables integration with FSharpLinter (additional warnings)
+Enables integration with [FSharpLint](https://fsprojects.github.io/FSharpLint/) for additional (user-defined) warnings
 
 **Type:** `bool`
 
@@ -135,7 +125,7 @@ Enables integration with FSharpLinter (additional warnings)
 
 #### `FSharp.unionCaseStubGeneration`
 
-Enables pattern matching stub generation
+Enables a codefix that generates missing union cases when in a match expression
 
 **Type:** `bool`
 
@@ -145,7 +135,7 @@ Enables pattern matching stub generation
 
 #### `FSharp.unionCaseStubGenerationBody`
 
-Generated pattern matching case default body
+The expression to fill in the right-hand side of match cases when generating missing cases for a match on a discriminated union
 
 **Type:** `string`
 
@@ -155,7 +145,7 @@ Generated pattern matching case default body
 
 #### `FSharp.recordStubGeneration`
 
-Enables record stub generation
+Enables a codefix that will generate missing record fields when inside a record construction expression
 
 **Type:** `bool`
 
@@ -165,7 +155,7 @@ Enables record stub generation
 
 #### `FSharp.recordStubGenerationBody`
 
-Generated record field default body
+The expression to fill in the right-hand side of record fields when generating missing fields for a record construction expression
 
 **Type:** `string`
 
@@ -175,7 +165,7 @@ Generated record field default body
 
 #### `FSharp.interfaceStubGeneration`
 
-Enables interface stub generation
+Enables a codefix that generates missing interface members when inside of an interface implementation expression
 
 **Type:** `bool`
 
@@ -185,7 +175,7 @@ Enables interface stub generation
 
 #### `FSharp.interfaceStubGenerationMethodBody`
 
-Generated member default body
+The expression to fill in the right-hand side of interface members when generating missing members for an interface implementation expression
 
 **Type:** `string`
 
@@ -195,11 +185,41 @@ Generated member default body
 
 #### `FSharp.interfaceStubGenerationObjectIdentifier`
 
-Generated member default object identifier
+The name of the 'self' identifier in an interface member. For example, `this` in the expression `this.Member(x: int) = ()`
 
 **Type:** `string`
 
 **Default:** `this`
+
+---
+
+#### `FSharp.abstractClassStubGeneration`
+
+Enables a codefix that generates missing members for an abstract class when in an type inheriting from that abstract class.
+
+**Type:** `boolean`
+
+**Default:** `true`
+
+---
+
+#### `FSharp.abstractClassStubGenerationObjectIdentifier`
+
+The name of the 'self' identifier in an inherited member. For example, `this` in the expression `this.Member(x: int) = ()`
+
+**Type:** `string`
+
+**Default:** `this`
+
+---
+
+#### `FSharp.abstractClassStubGenerationMethodBody`
+
+The expression to fill in the right-hand side of inherited members when generating missing members for an abstract base class
+
+**Type:** `string`
+
+**Default:** `failwith \"Not Implemented\"`
 
 ---
 
@@ -225,7 +245,7 @@ Enables detection of unused declarations
 
 #### `FSharp.simplifyNameAnalyzer`
 
-Enables detection of symbols usages that can be simplified
+Enables detection of cases when names of functions and values can be simplified
 
 **Type:** `bool`
 
@@ -235,7 +255,7 @@ Enables detection of symbols usages that can be simplified
 
 #### `FSharp.fsiExtraParameters`
 
-Allows to pass extra parameters to FSI process
+An array of additional command line parameters to pass to FSI when it is started. See [the documentation](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/fsharp-interactive-options) for an exhaustive list.
 
 **Type:** `array`
 
@@ -245,27 +265,17 @@ Allows to pass extra parameters to FSI process
 
 #### `FSharp.saveOnSendLastSelection`
 
-Save Current file before send LastSelection to FSI
+If enabled, the current file will be saved before sending the last selection to FSI for evaluation
 
 **Type:** `bool`
 
 **Default:** `false`
-
----
-
-#### `FSharp.msbuildLocation`
-
-Use a specific version of msbuild to build this project.
-
-**Type:** `string`
-
-**Default:** ` `
 
 ---
 
 #### `FSharp.msbuildAutoshow`
 
-Automatically shows MsBuild output panel
+Automatically shows the MSBuild output panel when MSBuild functionality is invoked
 
 **Type:** `bool`
 
@@ -273,25 +283,9 @@ Automatically shows MsBuild output panel
 
 ---
 
-#### `FSharp.msbuildHost`
-
-MSBuild host
-
-**Type:** `enum`
-
-**Possible values:**
- * `.net`
- * `.net core`
- * `ask at first use`
- * `auto`
-
-**Default:** `auto`
-
----
-
 #### `FSharp.resolveNamespaces`
 
-Enables `resolve unopened namespaces and modules` code fix.
+Enables a codefix that will suggest namespaces or module to open when a name is not recognized
 
 **Type:** `bool`
 
@@ -301,7 +295,7 @@ Enables `resolve unopened namespaces and modules` code fix.
 
 #### `FSharp.enableTreeView`
 
-Enables solution explorer.
+Enables the solution explorer view of the current workspace, which shows the workspace as MSBuild sees it
 
 **Type:** `bool`
 
@@ -321,7 +315,7 @@ Directories in the array are excluded from project file search. Requires restart
 
 #### `FSharp.lineLens.enabled`
 
-Usage mode for LineLens
+Usage mode for LineLens. If `never`, LineLens will never be shown.  If `replaceCodeLens`, LineLens will be placed in a decoration on top of the current line.
 
 **Type:** `enum`
 
@@ -336,7 +330,7 @@ Usage mode for LineLens
 
 #### `FSharp.lineLens.prefix`
 
-The prefix displayed before the signature
+The prefix displayed before the signature in a LineLens
 
 **Type:** `string`
 
@@ -354,6 +348,7 @@ Disables popup notifications for failed project loading
 
 ---
 
+
 #### `FSharp.enableBackgroundServices`
 
 Enables background services responsible for creating symbol cache and typechecking files in the background. Requires restart.
@@ -364,9 +359,19 @@ Enables background services responsible for creating symbol cache and typechecki
 
 ---
 
+#### `FSharp.emableMSBuildProjectGraph`
+
+EXPERIMENTAL. Enables support for loading workspaces with MsBuild's ProjectGraph. This can improve load times. Requires restart.
+
+**Type:** `boolean`
+
+**Default:** `false`
+
+---
+
 #### `FSharp.enableReferenceCodeLens`
 
-Enables additional code lenses showing number of references. Requires background services
+Enables additional code lenses showing number of references of a function or value. Requires background services to be enabled.
 
 **Type:** `bool`
 
@@ -376,7 +381,7 @@ Enables additional code lenses showing number of references. Requires background
 
 #### `FSharp.showProjectExplorerIn`
 
-Set the activity (left bar) where the project explorer view will be displayed.Requires restart.
+Set the activity (left bar) where the project explorer view will be displayed. If `explorer`, then the project explorer will be a collapsible tab in the main explorer view, a sibling to the file system explorer. If `fsharp`, a new activity with the F# logo will be added and the project explorer will be rendered in this activity.Requires restart.
 
 **Type:** `enum`
 
@@ -390,7 +395,7 @@ Set the activity (left bar) where the project explorer view will be displayed.Re
 
 #### `FSharp.enableAnalyzers`
 
-EXPERIMENTAL. Enables custom analyzers. Requires restart.
+EXPERIMENTAL. Enables F# analyzers for custom code diagnostics. Requires restart.
 
 **Type:** `bool`
 
@@ -410,7 +415,7 @@ Directories in the array are used as a source of custom analyzers. Requires rest
 
 #### `FSharp.workspacePath`
 
-Path to the directory or solution file that should be loaded as a workspace
+Path to the directory or solution file that should be loaded as a workspace. If set, no workspace probing or discovery is done by Ionide at all.
 
 **Type:** `string`
 
@@ -428,7 +433,7 @@ Automatically shows solution explorer on plugin startup
 
 #### `FSharp.enableTouchBar`
 
-Enables TouchBar integration
+Enables TouchBar integration of build/run/debug buttons
 
 **Type:** `bool`
 
@@ -438,7 +443,7 @@ Enables TouchBar integration
 
 #### `FSharp.autoRevealInExplorer`
 
-Set the activity (left bar) where the project explorer view will be displayed.Requires restart.
+Controls whether the solution explorer should automatically reveal and select files when opening them. If `sameAsFileExplorer` is set, then the value of the `explorer.autoReveal` setting will be used instead.
 
 **Type:** `enum`
 
@@ -509,7 +514,7 @@ Controls whether the info panel should be displayed at startup
 
 #### `FSharp.verboseLogging`
 
-Logs additional information to F# output channel. Requires restart.
+Logs additional information to F# output channel. This is equivalent to passing the `--verbose` flag to FSAC. Requires restart.
 
 **Type:** `bool`
 
@@ -551,16 +556,6 @@ Allow Ionide to prompt whenever internal data files aren't included in your proj
 
 ---
 
-#### `FSharp.useSdkScripts`
-
-Use `dotnet fsi` instead of `fsi.exe`/`fsharpi`
-
-**Type:** `bool`
-
-**Default:** `false`
-
----
-
 #### `FSharp.dotNetRoot`
 
 Sets the root path for finding dotnet SDK references. Primarily used for FSX Scripts.
@@ -568,3 +563,40 @@ Sets the root path for finding dotnet SDK references. Primarily used for FSX Scr
 **Type:** `string`
 
 ---
+#### `FSharp.addFsiWatcher`
+
+Enables a panel for FSI that shows the value of all existing bindings in the FSI session
+
+**Type:** `boolean`
+
+**Default:** `false`
+
+---
+#### `FSharp.generateBinLog`
+
+Enables generation of `msbuild.binlog` files for project loading. It works only for fresh, non-cached project loading. Run `F#: Clear Project Cache` and reload window to force fresh loading of all projects. These files can be loaded and inspected using the [MSBuild Structured Logger](https://github.com/KirillOsenkov/MSBuildStructuredLog)
+
+**Type:** `boolean`
+
+**Default:** `false`
+
+---
+#### `FSharp.pipelineHints.enabled`
+
+Enables pipeline hints, which are like LineLenses that appear along each step of a chain of piped expressions
+
+**Type:** `boolean`
+
+**Default:** `true`
+
+---
+#### `FSharp.pipelineHints.prefix`
+
+The prefix displayed before the signature of a pipeline hint
+
+**Type:** `string`
+
+**Default:** `  // `
+
+---
+
