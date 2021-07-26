@@ -92,6 +92,25 @@ The deep level of directory hierarchy when searching for sln/projects
 **Default:** `4`
 
 ---
+#### `FSharp.fsiFilePath`
+
+The path to the F# Interactive tool used by Ionide-FSharp (.NET framework only, on .NET Core `FSharp.fsiSdkFilePath` is used)
+
+**Type:** `string`
+
+**Default:** ` `
+
+---
+#### `FSharp.fsiSdkFilePath`
+
+The path to the F# Interactive tool used by Ionide-FSharp (when using .NET SDK scripts)
+
+**Type:** `string`
+
+**Default:** ` `
+
+---
+
 
 #### `FSharp.keywordsAutocomplete`
 
@@ -551,6 +570,24 @@ Set the activity (left bar) where the FAKE targets outline view will be displaye
 Allow Ionide to prompt whenever internal data files aren't included in your project's .gitignore
 
 **Type:** `bool`
+
+**Default:** `true`
+
+---
+#### `FSharp.suggestSdkScripts`
+
+Allow Ionide to suggest using .Net SDK FSI for scripting instead of .Net Framework FSI
+
+**Type:** `boolean`
+
+**Default:** `true`
+
+---
+#### `FSharp.useSdkScripts`
+
+Use `dotnet fsi` instead of `fsi.exe`/`fsharpi` to start an FSI session
+
+**Type:** `boolean`
 
 **Default:** `true`
 
