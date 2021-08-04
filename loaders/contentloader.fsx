@@ -3,6 +3,7 @@ open System
 #r "../packages/documentation/Markdig/lib/netstandard2.0/Markdig.dll"
 
 open Markdig
+open Markdig.Extensions.AutoIdentifiers
 open System.IO
 
 type PostConfig = {
@@ -26,6 +27,7 @@ let markdownPipeline =
     MarkdownPipelineBuilder()
         .UsePipeTables()
         .UseGridTables()
+        .UseAutoIdentifiers(AutoIdentifierOptions.GitHub)
         .Build()
 
 let isSeparator (input : string) =
