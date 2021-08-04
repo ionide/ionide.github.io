@@ -1,9 +1,15 @@
 ---
-title: List of options
+title: Customization
 menu_order: 5
 ---
 
-# List of options
+# Customizing Ionide
+
+## Table of Contents
+
+* [How to set an option](#how-to-set-an-option)
+* [Ionide Settings](#ionide-settings)
+* [Theming](#theming)
 
 ## How to set an option?
 
@@ -28,6 +34,9 @@ You can also open the Settings editor from the Command Palette (`Ctrl+Shift+P`) 
 Read more about settings in VSCode in [VSCode documentation](https://code.visualstudio.com/docs/getstarted/settings)
 
 ---
+
+## Ionide Settings
+
 #### `FSharp.fsac.dotnetArgs`
 
 Additional CLI arguments that will be provided to the dotnet runtime when running FSAC
@@ -637,3 +646,60 @@ The prefix displayed before the signature of a pipeline hint
 
 ---
 
+## Theming
+
+VS Code allows for very deep theming and customization, and Ionide plugs into this system excellently.
+The Language Server performs advanced syntax highlighting and annotates the source code with [semantic tokens and modifiers](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#standard-token-types-and-modifiers).
+These tokens and modifiers can be themed individually in whatever way you want. For a deep dive on semantic tokens, including how
+to find out which tokens and modifiers have been applied to source code that you want to theme, please see the [official documentation](https://code.visualstudio.com/docs/getstarted/themes#_editor-semantic-highlighting).
+
+In addition to the standard set of tokens and modifiers shown on that documentation, Ionide provides several custom scopes and modifiers:
+
+#### Scopes
+
+* `member`- used in mutable vars and record fields, as well as exceptions, fields, events, delegates, and named arguments
+* `cexpr` - for computation expressions
+* `text` - for plaintext strings
+
+#### Modifiers
+
+* `mutable` - for any values that are defined as `let mutable`
+* `disposable` - for any values that implement `System.IDisposable`
+
+
+### Applying custom themes
+
+Like all settings, theme customizations are stored in settings files, which are described at the top of this page in greater detail.
+
+Semantic tokens can be overidden on a theme-by-theme basis in the following way:
+
+
+```js
+{
+    "editor.semanticTokenColorCustomizations": {
+      "[Default Dark+]": {
+            "enabled": true,
+            "rules": {
+                "*.mutable": {
+                    "foreground": "#FF0000",
+                    "fontStyle": "underline",
+                },
+                "*.disposable": {
+                    "foreground": "#ff8b2c",
+                    "fontStyle": "bold"
+                }
+
+            }
+        }
+    }
+}
+```
+
+A few things to note about this example:
+
+* the individual theme names are placed into square brackets
+* the `rules` are a map of `scope` or `modifier` to the theme settings to be applied to tokens that match
+* the key of a `rule` can be
+  * a fully-qualified scope (i.e. `<scope>.<modifier>`, for example `member.mutable`)
+  * just a scope (i.e. `member`)
+  * a wildcard modifier (i.e. `*.mutable` to apply to all mutables, regardless of scope)
