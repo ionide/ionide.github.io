@@ -387,7 +387,7 @@ Enables background services responsible for creating symbol cache and typechecki
 
 ---
 
-#### `FSharp.emableMSBuildProjectGraph`
+#### `FSharp.enableMSBuildProjectGraph`
 
 EXPERIMENTAL. Enables support for loading workspaces with MsBuild's ProjectGraph. This can improve load times. Requires restart.
 
