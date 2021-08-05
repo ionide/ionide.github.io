@@ -39,26 +39,16 @@ Read more about settings in VSCode in [VSCode documentation](https://code.visual
 
 #### `FSharp.fsac.dotnetArgs`
 
-Additional CLI arguments that will be provided to the dotnet runtime when running FSAC
+Additional CLI arguments that will be provided to the dotnet runtime when running FSAC. These are fully described at [the official Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet#runtime-options), and in general relate to which runtime FSAC is run on.
 
 **Type:** `string []`
 
-**Default:** `[ ]`
+**Default:** `["--roll-forward", "LatestMajor"]` or `[]`
 
-> Note: to enable .Net 6 support for FSAC at the present time, you should set this option to specify the .net 6 runtime specifically:
->
-> ```json
->   "FSharp.fsac.dotnetArgs": ["--fx-version", "<dotnet runtime version>"]
-> ```
->
-> The specific version you should pick can be found by running the `dotnet --list-runtimes` command:
-> 
-> ```
-> Microsoft.AspNetCore.App 5.0.7 [/usr/local/share/dotnet/shared/Microsoft.AspNetCore.App]
-> Microsoft.NETCore.App 6.0.0-preview.6.21352.12 [/usr/local/share/dotnet/shared/Microsoft.NETCore.App]
-> ```
->
-> Here, you would use the version `6.0.0-preview.6.21352.12`
+If FSAC is launched from a directory that has a global.json whose `sdk.version` is 6.0 or greater, or if the 6.0 SDK is installed and no global.json is present, the `--roll-forward LatestMajor` arguments will be added to ensure FSAC runs under .net 6 (required to support MSBuild correctly).
+
+Otherwise no arguments are automatically supplied by Ionide.
+
 
 ---
 
