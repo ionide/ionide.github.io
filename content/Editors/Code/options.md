@@ -592,9 +592,9 @@ Use `dotnet fsi` instead of `fsi.exe`/`fsharpi` to start an FSI session
 
 ---
 
-#### `FSharp.dotNetRoot`
+#### `FSharp.dotnetRoot`
 
-Sets the root path for finding dotnet SDK references. Primarily used for FSX Scripts.
+Sets the root path for finding locating the dotnet CLI binary. Defaults to the `dotnet` binary found on your system PATH.
 
 **Type:** `string`
 
