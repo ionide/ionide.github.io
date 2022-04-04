@@ -40,6 +40,7 @@ Ionide provides rich information about the symbols you hover on - structured sig
 Ionide provides fast error highlighting for local changes, changes in current project and cross project changes without any need to build projects. Error highlighting for current projects works as you edit code, it supports files not saved to disk. For cross project error reporting you need to save the file - it will queue background project type checking which will provide errors asynchronously without blocking any editor operations.
 
 Errors in VSCode are shown in multiple places:
+
 * In the status bar, there is a summary of all errors and warnings counts.
 * You can click on the summary or press `Ctrl+Shift+M` to display the `PROBLEMS` panel with a list of all current errors.
 * If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
@@ -52,6 +53,10 @@ Errors in VSCode are shown in multiple places:
 ### CodeLens and LineLens
 
 Ionide displays type signatures of the symbols either as information over the symbol (inserting virtual line) or as inlined information next to symbol. The behavior is customizable with `editor.codeLens`, `FSharp.lineLens.enabled` and `FSharp.lineLens.*` settings.
+
+### Inlay hints
+
+Ionide provides Inlay Hints that call out the types of let-bindings, as well as the parameter names of method parameters.
 
 ### Quick Info panel
 
@@ -73,6 +78,14 @@ You can generate pattern matching stubs by using the `Quick Fix` feature (Defaul
 ### Generate object expression implementation stub
 
 You can generate object expression implementation stub by using the `Quick Fix` feature (Default keyboard shortcut is `Ctrl+.`).
+
+### Smart build configurations
+
+Ionide generates VSCode Tasks for building, cleaning, and re-building every project in your workspace, as well as for the entire solution (if you have one). These tasks can be used as preLaunchTasks for your own launch/debug configurations.
+
+### Smart debug configurations
+
+Ionide generates Debugging Launch Configurations for runnable projects in your workspace. These can be extracted at any time to be a good starting point for any customizations you'd like to make. In addition, if your projects support [launchSettings.json](https://docs.microsoft.com/aspnet/core/fundamentals/environments?view=aspnetcore-6.0#development-and-launchsettingsjson), Ionide will generate a launch configuration for each launch profile with `"commandName"` of `'Project'` that you have configured.  This allows you to share launch configurations across VS Code, Visual Studio, JetBrains Rider, and the dotnet CLI via the `dotnet run` command.
 
 ## Code navigation
 
@@ -136,16 +149,56 @@ Ionide provides live updated panel showing symbols in current file. It's availab
 
 ### FSharpLint integration
 
+Ionide incorporates the [FSharpLint](https://fsprojects.github.io/FSharpLint/) project, which allows you to run linting rules against your code and see the results in your editor.
+
 ### Unused value analyzer
+
+Ionide will detect unused values in your code and suggest that you remove them.
 
 ### Unnecessary open statement analyzer
 
+Ionide will detect namespaces and modules that you've `open`ed in your code that aren't being used, and suggest that you remove them.
+
 ### Simplify name analyzer
+
+If you've over-qualified a name, for example if you've typed `System.IO.FileInfo` when you already had `System.IO` open, Ionide will suggest a codefix that removes the unnecessary portion of the name.
 
 ## Refactoring
 
 ### Rename symbol
 
-### Quick fixes
+Ionide supports renaming of bindings, parameters, and so on.
 
-### Generate comment scaffold
+### Code Fixes
+
+Ionide supports a host of code fixes. They can all be invoked by using the light bulb icon that appears when they are available.
+
+* Add an explicit type to a function parameter
+* Add a `fun` keyword to a lambda that was written without one
+* Add a missing 'self' identifier parameter to a method that needs one
+* Add a missing `rec` keyworkd to a recursive function that doesn't have one
+* Add an explicit type annotation to a parameter that throws an indeterminate type error (errors 72 or 3245)
+* Change C#-style use of `=` for assignment to `<-` instead
+* Change C#-style use of `=>` for a lambda to `->` instead
+* Change uses of `typeof<'t>.Name` to use `nameof('t)` instead
+* Change use of `=` in record field declarations to `:`
+* Change C#-style use of `!=` to `<>` instead
+* Change a record creation of an unknown type to use an anonymous record instead
+* Change a positionally-matched DU to a named-match DU instead
+* Change C#-style use of `==` for equality to `=` instead
+* Change the declaration of a let-binding to `mutable` when a user attempts to mutate it later
+* Add a missing `=` when you start a type declaration and rush past the name to the fields/union cases
+* Convert negation of a value to subtraction instead when negation was not intended
+* Suggest the use of `new` for disposable types
+* Wrap an expression in parentheses when it is necessary to resolve parameter ambiguity
+* Remove redundant qualifiers
+* Change C#-style use of `!` for negation to use `not` instead
+* Remove explicit `return` or `yield` commands inside a CE when the compiler thinks they are not necessary
+* Change use of the `!` operator on ref cells to use `.Value` instead
+* Offer to open modules/namespaces or use fully-qualified names when a type is used but the full name cannot be resolved
+* Replace a potentially-typo'ed identifier name with one from a compiler-suggested list of possibilities
+* Replace the use of unsafe downcast operations with safe casts operations when it is correct to do so
+
+### Generate XML documentation comments
+
+Ionide can generate XML documentation comments that scaffold out the relevant XML structures for your current function, member or value.
