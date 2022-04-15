@@ -1,6 +1,6 @@
 ---
 title: Customization
-menu_order: 5
+menu_order: 10
 ---
 
 # Customizing Ionide
@@ -635,6 +635,30 @@ The prefix displayed before the signature of a pipeline hint
 **Default:** `  // `
 
 ---
+
+#### `FSharp.inlayHints.enabled`
+
+Controls if the inlay hints feature is enabled.
+
+**Type:** `boolean`
+
+**Default:** `true`
+
+#### `Fsharp.inlayHints.parameterNames`
+
+Controls if parmaeter-name inlay hints will be displayed for functions and methods.
+
+**Type:** `boolean`
+
+**Default:** `true`
+
+#### `FSharp.inlayHints.typeAnnotations`
+
+Controls if type-annotation inlay hitns will be displayed for bindings.
+
+**Type:** `boolean`
+
+**Default:** `true`
 
 ## Theming
 

@@ -59,8 +59,7 @@ Ionide for VSCode is set of 3 plugins avaliable in VSCode marketplace.
 
 #### F# Project management
 
-* Integration with [Forge](/Tools/forge.html)
-* Possibility to create new empty solutions or projects (multiple templates for most popular project types)
+* Possibility to create new empty solutions or projects based on .NET SDK Templates
 * Adding, removing, ordering files in project
 * Adding and removing project references
 
@@ -77,11 +76,10 @@ Ionide for VSCode is set of 3 plugins avaliable in VSCode marketplace.
 * Running any build target defined in FAKE build script
 * Running default FAKE target
 
-#### MSBuild/XBuild integration
+#### MSBuild integration
 
 * Build/Clean/Rebuild the current project
 * Build/Clean/Rebuild any project in the current workspace
-* Works with the most recent version of msbuild/xsbuild on your system, or supply your own
 
 #### And much more...
 
