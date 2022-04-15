@@ -1,6 +1,6 @@
 ---
 title: Customization
-menu_order: 5
+menu_order: 10
 ---
 
 # Customizing Ionide

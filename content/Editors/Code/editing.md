@@ -4,7 +4,7 @@ menu_order: 4
 ---
 # Editing evolved
 
-Ionide provides variety of language features known from more IDEs such as VS, and set of innovative features that makes you more productive then ever when writing F# code like CodeLenses, integration with FSharpLint and Quick Fixes.
+Ionide provides a variety of language features known from larger IDEs such as VS, and a set of innovative features that makes you more productive then ever when writing F# code like CodeLenses, integration with FSharpLint and Quick Fixes.
 
 ## Basic features
 
@@ -78,10 +78,6 @@ You can generate pattern matching stubs by using the `Quick Fix` feature (Defaul
 ### Generate object expression implementation stub
 
 You can generate object expression implementation stub by using the `Quick Fix` feature (Default keyboard shortcut is `Ctrl+.`).
-
-### Smart build configurations
-
-Ionide generates VSCode Tasks for building, cleaning, and re-building every project in your workspace, as well as for the entire solution (if you have one). These tasks can be used as preLaunchTasks for your own launch/debug configurations.
 
 ### Smart debug configurations
 
