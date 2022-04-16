@@ -9,7 +9,7 @@ menu_order: 2
 
 * Visual Studio Code - it is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux created by Microsoft. For detailed documentation of editor, getting-started guides and more visit [official documentation](https://code.visualstudio.com/docs).
 
-* F# - it is a mature, open source, cross-platform, functional-first programming language. It empowers users and organizations to tackle complex computing problems with simple, maintainable and robust code. Ionide supports any version of F# >= 3.0 but we do recommend using F# 6.0. Detailed installation instructions can be found of F# Software foundation webpage - for [Windows](http://fsharp.org/use/windows/), [MacOS](http://fsharp.org/use/mac/), and [Linux](http://fsharp.org/use/linux/)
+* F# - it is a mature, open source, cross-platform, functional-first programming language. It empowers users and organizations to tackle complex computing problems with simple, maintainable and robust code. Ionide supports version F# 6.0. Detailed installation instructions can be found of F# Software foundation webpage - for [Windows](http://fsharp.org/use/windows/), [MacOS](http://fsharp.org/use/mac/), and [Linux](http://fsharp.org/use/linux/)
 
 * .NET SDK - .NET is lightweight, cross platform, modern implementation of .NET Framework. We strongly recommend installing it since some advanced Ionide features such as debugging and project scaffolding depends on SDK and `dotnet` CLI tooling even if your application is targetting Full Framework. For detailed instructions on installing .NET visit [official step-by-step installation guide](https://dotnet.microsoft.com/download)
 
