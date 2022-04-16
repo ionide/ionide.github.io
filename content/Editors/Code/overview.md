@@ -16,7 +16,7 @@ Ionide is a [Visual Studio Code](https://code.visualstudio.com/) package suite f
 
 Ionide for VSCode is set of 3 plugins avaliable in VSCode marketplace.
 
-* [Ionide-fsharp](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp) - provides F# specific features including advanced editor features (autocomplete, go-to definition, tooltips, rename, various refactorings and quick fix suggestions), integration with .Net project system, project explorer for project file visualization and manipulation, integration with MsBuild for building and running applications, debugger integration and more.
+* [Ionide-fsharp](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp) - provides F# specific features including advanced editor features (autocomplete, go-to definition, tooltips, rename, various refactorings and quick fix suggestions), integration with .NET project system, project explorer for project file visualization and manipulation, integration with MsBuild for building and running applications, debugger integration and more.
 
 <img class="gif" src="/static/images/fsi.gif" />
 
@@ -50,7 +50,7 @@ Ionide for VSCode is set of 3 plugins avaliable in VSCode marketplace.
 * CodeOutline tree view
 * Listing all errors in workspace
 * Building using msbuild / xbuild
-* Integration with .Net Core
+* Integration with .NET
 * Project explorer tree view
 * Debugging
 * Record stub generation

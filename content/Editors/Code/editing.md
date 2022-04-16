@@ -131,7 +131,7 @@ Usages of symbol in current file will be highlighted as soon as the cursor is on
 
 ### Go to MSDN help
 
-Ionide provides command for opening MSDN documentation for given symbol. It works only for symbols from F# standard library, and .Net standard library. You can execute command with `Shift+F1` or from Command Palette (`F#: Get Help`).
+Ionide provides command for opening MSDN documentation for given symbol. It works only for symbols from F# standard library, and .NET standard library. You can execute command with `Shift+F1` or from Command Palette (`F#: Get Help`).
 
 ### CodeOutline panel
 

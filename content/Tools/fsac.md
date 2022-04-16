@@ -27,16 +27,9 @@ It's based on:
 
 ## Required software
 
-FsAutoComplete can run on .NET/mono or .NET Core. We highly recommend using .Net Core version of FSAC as we plan to remove "full framework" version soon - [read more](https://github.com/fsharp/FsAutoComplete/issues/506)
+FsAutoComplete runs on modern .NET (formerly .NET Core).
 
-### FSAC .NET Core
-
-* .NET Core Sdk (Required: >= 2.1, Recommended: >= 3.0 )
-
-### FSAC .NET (deprecated)
-
-* on windows: [Microsoft Build Tools 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48159)
-* on unix/mac: Required: Mono >= 5.12, Recommended: Mono >= 5.18
+* .NET SDK (Required: >= 6.0)
 
 ## Communication protocol
 
@@ -130,7 +123,7 @@ Options that should be send as `initializationOptions` as part of `initialize` r
 * `FSharp.InterfaceStubGenerationMethodBody` - defines dummy body used by interface stub generator, recommended default value: `"failwith \"Not Implemented\""`
 * `FSharp.UnusedOpensAnalyzer` - enables unused `open` detections, recommended default value: `true`
 * `FSharp.UnusedDeclarationsAnalyzer` - enables unused symbol detection, recommended default value: `true`
-* `FSharp.UseSdkScripts` - enables the use of .Net Core SDKs for script file type-checking and evaluation, otherwise the .Net Framework reference lists will be used. Recommended default value: `true`. Current default value: `false`
+* `FSharp.UseSdkScripts` - enables the use of .NET (Core) SDKs for script file type-checking and evaluation, otherwise the .NET Framework reference lists will be used. Current default and recommended value: `true`
 * `FSharp.SimplifyNameAnalyzer` - enables simplify name analyzer and remove redundant qualifier quick fix, recommended default value: `false`
 * `FSharp.ResolveNamespaces` - enables resolve namespace quick fix (add `open` if symbol is from not yet opened module/namespace), recommended default value: `true`
 * `FSharp.EnableReferenceCodeLens` - enables reference count code lenses, recommended default value: `true` if `--background-service-enabled` is used by default, `false` otherwise

@@ -8,7 +8,7 @@ menu_order: 3
 **GitHub link:** [https://github.com/ionide/dotnet-proj-info](https://github.com/ionide/dotnet-proj-info)
 **License:** [MIT](https://github.com/ionide/dotnet-proj-info/blob/master/LICENSE)
 
-`dotnet-proj-info` is library and command line tool used to parse and evaluate MsBuild files (`.fsproj`). It's used to get out of project files properties, list of files, list of project references, list of .Net references and more. It supports projects targeting both .Net Framework and .Net Core, using either old (verbose) project format or new (SDK-based) one. It's powering project cracking in [FsAutoComplete](/Tools/fsac.html) and solution explorer in [Ionide-VSCode](/Editors/Code/overview.html)
+`dotnet-proj-info` is library and command line tool used to parse and evaluate MsBuild files (`.fsproj`). It's used to get out of project files properties, list of files, list of project references, list of .NET references and more. It supports projects targeting both .NET Framework and .NET Core, using either old (verbose) project format or new (SDK-based) one. It's powering project cracking in [FsAutoComplete](/Tools/fsac.html) and solution explorer in [Ionide-VSCode](/Editors/Code/overview.html)
 
 ### How to use
 

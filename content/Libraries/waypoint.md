@@ -61,7 +61,7 @@ No project lives in vacuum - good ideas are very often just small improvements o
 
 ## Used projects
 
-* [.Net Core SDK](https://dotnet.microsoft.com/download) - modern, OSS, cross platform distribution of .Net; `dotnet` - CLI tool for developers
+* [.NET SDK](https://dotnet.microsoft.com/download) - modern, OSS, cross platform distribution of .NET; `dotnet` - CLI tool for developers
 * [Paket](https://fsprojects.github.io/Paket/) - Paket is a dependency manager for .NET projects, popular in F# community.
 * [FAKE](https://fake.build/) - F# build DSL and task runner
 * [Fornax](https://ionide.io/Tools/fornax.html) - scriptable static site generator using type safe F# DSL to define page layouts
