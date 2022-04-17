@@ -17,9 +17,9 @@ Ionide is an organization which builds **high quality, cross platform developer 
 > We build cross platform, F# developer tooling
 
 * Provide cross platform, open source developer tooling for F#
-* Provide high quality IDE experience
+* Provide a high quality IDE experience
 * Innovate in the area of development tooling for F# / FP languages
 * Provide a set of opinionated tools that work well together
-* Focus on UX, everything should Just Work (tm)
+* Focus on UX, everything should Just Work™
 * Contribute to the general F# OSS ecosystem
 

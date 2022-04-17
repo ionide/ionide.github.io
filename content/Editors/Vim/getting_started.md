@@ -8,7 +8,7 @@ menu_order: 2
 ## Requirements
 
 * Neovim or Vim 8.0+ - Python support is not required as of now. This may or may not change in the future.
-* [.NET Core SDK](https://dotnet.microsoft.com/download) - required to run FsAutoComplete
+* [.NET SDK](https://dotnet.microsoft.com/download) - required to run FsAutoComplete
 * [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim) - LSP client used to communicate with FsAutoComplete
 * [fzf](https://github.com/junegunn/fzf) (optional) -Optional dependency of LanguageClient-neovim, provides multi-entry selection UI
 

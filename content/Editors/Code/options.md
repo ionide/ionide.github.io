@@ -575,7 +575,7 @@ Allow Ionide to prompt whenever internal data files aren't included in your proj
 ---
 #### `FSharp.suggestSdkScripts`
 
-Allow Ionide to suggest using .Net SDK FSI for scripting instead of .Net Framework FSI
+Allow Ionide to suggest using .NET SDK FSI for scripting instead of .NET Framework FSI
 
 **Type:** `boolean`
 
