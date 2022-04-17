@@ -15,7 +15,7 @@ menu_order: 2
 
 * VSCode C# plugin (optional) - Ionide's debugging capabilities relies on the debugger provided by Omnisharp team. To get it install [C# extension from VSCode marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
-* MsBuild 2015 (Windows only, optional) - For old, verbose `.fsproj` files on Windows MsBuild 2015 (14.0) needs to be additionally installed. You can download it [here](https://www.microsoft.com/en-us/download/details.aspx?id=48159). However, we highly recommend using new, SDK-based project files.
+* MsBuild 2022 (Windows only, optional) - For old, verbose `.fsproj` files on Windows MsBuild 2022 (17.0) needs to be additionally installed. You can find it in the Tools for Visual Studio 2022 section [here](https://visualstudio.microsoft.com/downloads/). However, we highly recommend using new, SDK-based project files.
 
 ## Plugin installation
 
