@@ -37,13 +37,13 @@ erDiagram
 
     FsAutocomplete ||--|| Ionide-ProjInfo : "To get information for the F# Compiler"
     FsAutocomplete ||--|| Ionide-LanguageServerProtocol  : "To communicate with an LSPClient"
-    FsAutocomplete ||--|| Ionide-FSharpSDKAnalyzers : "To run analyzers"
+    FsAutocomplete ||--|| Ionide-FSharp.Analyzers.SDK : "To run analyzers"
     FsAutocomplete ||--|| "FSharp.Compiler.Service" : "To get type information, errors, warnings, etc."
     FsAutocomplete ||--|| Fantomas : "To format code."
     FsAutocomplete ||--|| FsharpLint : "To lint code."
     
     "ionide-vscode-fsharp" ||--||  FsAutocomplete : "Uses LSP to communicate to"
-    "ionide-vscode-fsharp" ||--||  Ionide-FsGrammer : "To colorize"
+    "ionide-vscode-fsharp" ||--||  "Ionide-fsgrammar" : "To colorize"
     "ionide-vscode-fsharp" ||--|| ionide-vscode-helpers : "Helpers to interact with vscode"
     VSCode  ||--|| "ionide-vscode-fsharp" : "Uses "
 
@@ -52,3 +52,17 @@ erDiagram
     "additional LSP Clients" ||--|| FsAutocomplete : "Uses LSP to communicate to"
 ```
 
+* [MsBuild](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2022)
+* [Ionide-ProjInfo](https://github.com/ionide/proj-info)
+* [Ionide-FSharp.Analyzers.SDK](https://github.com/ionide/FSharp.Analyzers.SDK)
+* [ionide-vscode-fsharp](https://github.com/ionide/ionide-vscode-fsharp)
+* [Ionide-LanguageServerProtocol](https://github.com/ionide/LanguageServerProtocol)
+* [Fantomas](https://github.com/fsprojects/fantomas)
+* [FSharpLint](https://github.com/fsprojects/FSharpLint)
+* [FSharp.Compiler.Service](https://fsharp.github.io/fsharp-compiler-docs/fcs/)
+* [FsAutocomplete](https://github.com/fsharp/FsAutoComplete)
+* [ionide-fsgrammar](https://github.com/ionide/ionide-fsgrammar)
+* [ionide-vscode-helpers](https://github.com/ionide/ionide-vscode-helpers)
+* [VsCode](https://code.visualstudio.com/)
+* [ionide-vim](https://github.com/ionide/Ionide-vim)
+* [emacs-fsharp-mode](https://github.com/fsharp/emacs-fsharp-mode)
