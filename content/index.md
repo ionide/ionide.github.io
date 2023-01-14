@@ -23,3 +23,32 @@ Ionide is an organization which builds **high quality, cross platform developer 
 * Focus on UX, everything should Just Work™
 * Contribute to the general F# OSS ecosystem
 
+
+### Toolchain
+
+
+```mermaid
+---
+title: Ionide/FsAutoComplete toolchain
+---
+
+erDiagram
+    Ionide-ProjInfo ||--|| MsBuild : "To get information out of msbuild"
+
+    FsAutocomplete ||--|| Ionide-ProjInfo : "To get information for the F# Compiler"
+    FsAutocomplete ||--|| Ionide-LanguageServerProtocol  : "To communicate with an LSPClient"
+    FsAutocomplete ||--|| Ionide-FSharpSDKAnalyzers : "To run analyzers"
+    FsAutocomplete ||--|| "FSharp.Compiler.Service" : "To get type information, errors, warnings, etc."
+    FsAutocomplete ||--|| Fantomas : "To format code."
+    FsAutocomplete ||--|| FsharpLint : "To lint code."
+    
+    "ionide-vscode-fsharp" ||--||  FsAutocomplete : "Uses LSP to communicate to"
+    "ionide-vscode-fsharp" ||--||  Ionide-FsGrammer : "To colorize"
+    "ionide-vscode-fsharp" ||--|| ionide-vscode-helpers : "Helpers to interact with vscode"
+    VSCode  ||--|| "ionide-vscode-fsharp" : "Uses "
+
+    "emacs-fsharp-mode" ||--|| FsAutocomplete : "Uses LSP to communicate to"
+    "ionide-vim" ||--|| FsAutocomplete : "Uses LSP to communicate to"
+    "additional LSP Clients" ||--|| FsAutocomplete : "Uses LSP to communicate to"
+```
+
