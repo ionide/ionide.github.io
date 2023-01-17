@@ -37,7 +37,7 @@ erDiagram
 
     FsAutocomplete ||--|| Ionide-ProjInfo : "To get information for the F# Compiler"
     FsAutocomplete ||--|| Ionide-LanguageServerProtocol  : "To communicate with an LSPClient"
-    FsAutocomplete ||--|| Ionide-FSharp.Analyzers.SDK : "To run analyzers"
+    FsAutocomplete ||--|| "Ionide-FSharp.Analyzers.SDK" : "To run analyzers"
     FsAutocomplete ||--|| "FSharp.Compiler.Service" : "To get type information, errors, warnings, etc."
     FsAutocomplete ||--|| Fantomas : "To format code."
     FsAutocomplete ||--|| FsharpLint : "To lint code."
@@ -45,7 +45,7 @@ erDiagram
     "ionide-vscode-fsharp" ||--||  FsAutocomplete : "Uses LSP to communicate to"
     "ionide-vscode-fsharp" ||--||  "Ionide-fsgrammar" : "To colorize"
     "ionide-vscode-fsharp" ||--|| ionide-vscode-helpers : "Helpers to interact with vscode"
-    VSCode  ||--|| "ionide-vscode-fsharp" : "Uses "
+    VSCode  ||--|| "ionide-vscode-fsharp" : "Uses"
 
     "emacs-fsharp-mode" ||--|| FsAutocomplete : "Uses LSP to communicate to"
     "ionide-vim" ||--|| FsAutocomplete : "Uses LSP to communicate to"
