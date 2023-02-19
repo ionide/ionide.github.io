@@ -37,6 +37,27 @@ Read more about settings in VSCode in [VSCode documentation](https://code.visual
 
 ## Ionide Settings
 
+#### `FSharp.fsac.attachDebugger`
+
+Appends the '--attachdebugger' argument to fsac, this will allow you to attach a debugger.
+
+**Type:** `bool`
+
+**Default:** `false`
+
+---
+
+
+#### `FSharp.fsac.conserveMemory`
+
+This will set [DOTNET_GCConserveMemory](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory). Requires restart.
+
+**Type:** `bool`
+
+**Default:** `false`
+
+---
+
 #### `FSharp.fsac.dotnetArgs`
 
 Additional CLI arguments that will be provided to the dotnet runtime when running FSAC. These are fully described at [the official Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet#runtime-options), and in general relate to which runtime FSAC is run on.
@@ -62,15 +83,6 @@ The path to the `fsautocomplete.dll`, useful for debugging a self-built fsac.
 
 ---
 
-#### `FSharp.fsac.attachDebugger`
-
-Appends the '--attachdebugger' argument to fsac, this will allow you to attach a debugger.
-
-**Type:** `bool`
-
-**Default:** `false`
-
----
 
 #### `FSharp.fsac.silencedLogs`
 
@@ -361,6 +373,16 @@ The prefix displayed before the signature in a LineLens
 Disables popup notifications for failed project loading
 
 **Type:** `bool`
+
+**Default:** `false`
+
+
+---
+#### `FSharp.enableAdaptiveLspServer`
+
+EXPERIMENTAL. Enables LSP Server based on FSharp.Data.Adaptive. This can improve stability. Requires restart.
+
+**Type:** `boolean`
 
 **Default:** `false`
 
@@ -717,3 +739,22 @@ A few things to note about this example:
   * a fully-qualified scope (i.e. `<scope>.<modifier>`, for example `member.mutable`)
   * just a scope (i.e. `member`)
   * a wildcard modifier (i.e. `*.mutable` to apply to all mutables, regardless of scope)
+
+
+### Recommended settings for larger solution/projects
+
+Here are settings recommended for larger projects to help with performance.
+
+```json
+{
+    "FSharp.codeLenses.references.enabled": false,
+    "FSharp.enableMSBuildProjectGraph": true,
+    "FSharp.enableAdaptiveLspServer": true,
+    "FSharp.fsac.conserveMemory": true
+}
+```
+
+* `FSharp.codeLenses.references.enabled` - Recommend disabling this because it requires typechecks of your whole solution.
+* `FSharp.enableMSBuildProjectGraph` - Recommend enabling this because it can speed up project load times for larger [project graphs](https://github.com/dotnet/msbuild/blob/main/documentation/specs/static-graph.md#project-graph).
+* `FSharp.enableAdaptiveLspServer` - Recommended enabling this because it has more [stable state management](https://github.com/fsprojects/FSharp.Data.Adaptive).
+* `FSharp.fsac.conserveMemory` - Recommended enabling this because it will [tell dotnet](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory) compact [Large Object Heap](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap) allocations.
