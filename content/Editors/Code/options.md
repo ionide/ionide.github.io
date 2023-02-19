@@ -739,3 +739,22 @@ A few things to note about this example:
   * a fully-qualified scope (i.e. `<scope>.<modifier>`, for example `member.mutable`)
   * just a scope (i.e. `member`)
   * a wildcard modifier (i.e. `*.mutable` to apply to all mutables, regardless of scope)
+
+
+### Recommended settings for larger solution/projects
+
+Here are settings recommended for larger projects to help with performance.
+
+```json
+{
+    "FSharp.codeLenses.references.enabled": false,
+    "FSharp.enableMSBuildProjectGraph": true,
+    "FSharp.enableAdaptiveLspServer": true,
+    "FSharp.fsac.conserveMemory": true
+}
+```
+
+* `FSharp.codeLenses.references.enabled` - Recommend disabling this because it requires typechecks of your whole solution.
+* `FSharp.enableMSBuildProjectGraph` - Recommend enabling this because it can speed up project load times for larger [project graphs](https://github.com/dotnet/msbuild/blob/main/documentation/specs/static-graph.md#project-graph).
+* `FSharp.enableAdaptiveLspServer` - Recommended enabling this because it has more [stable state management](https://github.com/fsprojects/FSharp.Data.Adaptive).
+* `FSharp.fsac.conserveMemory` - Recommended enabling this because it will [tell dotnet](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory) compact [Large Object Heap](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap) allocations.
