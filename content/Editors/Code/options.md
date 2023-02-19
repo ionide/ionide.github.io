@@ -37,6 +37,27 @@ Read more about settings in VSCode in [VSCode documentation](https://code.visual
 
 ## Ionide Settings
 
+#### `FSharp.fsac.attachDebugger`
+
+Appends the '--attachdebugger' argument to fsac, this will allow you to attach a debugger.
+
+**Type:** `bool`
+
+**Default:** `false`
+
+---
+
+
+#### `FSharp.fsac.conserveMemory`
+
+This will set [DOTNET_GCConserveMemory](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory). Requires restart.
+
+**Type:** `bool`
+
+**Default:** `false`
+
+---
+
 #### `FSharp.fsac.dotnetArgs`
 
 Additional CLI arguments that will be provided to the dotnet runtime when running FSAC. These are fully described at [the official Microsoft documentation](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet#runtime-options), and in general relate to which runtime FSAC is run on.
@@ -62,15 +83,6 @@ The path to the `fsautocomplete.dll`, useful for debugging a self-built fsac.
 
 ---
 
-#### `FSharp.fsac.attachDebugger`
-
-Appends the '--attachdebugger' argument to fsac, this will allow you to attach a debugger.
-
-**Type:** `bool`
-
-**Default:** `false`
-
----
 
 #### `FSharp.fsac.silencedLogs`
 
@@ -361,6 +373,16 @@ The prefix displayed before the signature in a LineLens
 Disables popup notifications for failed project loading
 
 **Type:** `bool`
+
+**Default:** `false`
+
+
+---
+#### `FSharp.enableAdaptiveLspServer`
+
+EXPERIMENTAL. Enables LSP Server based on FSharp.Data.Adaptive. This can improve stability. Requires restart.
+
+**Type:** `boolean`
 
 **Default:** `false`
 
