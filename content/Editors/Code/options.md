@@ -47,6 +47,16 @@ Appends the '--attachdebugger' argument to fsac, this will allow you to attach a
 
 ---
 
+#### `FSharp.fsac.cachedTypeCheckCount`
+
+The [MemoryCacheOptions.SizeLimit](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.caching.memory.memorycacheoptions.sizelimit?view=dotnet-plat-ext-7.0) for caching typechecks.
+
+**Type:** `integer`
+
+**Default:** `200`
+
+---
+
 
 #### `FSharp.fsac.conserveMemory`
 
