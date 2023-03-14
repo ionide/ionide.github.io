@@ -572,6 +572,32 @@ Logs additional information to F# output channel. This is equivalent to passing 
 
 ---
 
+
+#### `FSharp.notifications.trace`
+
+Enables more verbose notifications using System.Diagnostics.Activity to view traces from FSharp.Compiler.Service.
+
+**Type:** `bool`
+
+**Default:** `false`
+
+---
+#### `FSharp.notifications.traceNamespaces`
+
+The set of System.Diagnostics.Activity names to watch.
+
+**Type:** `string array`
+
+**Default:** 
+```json
+[
+    "BoundModel.TypeCheck",
+    "BackgroundCompiler."
+]
+```
+
+---
+
 #### `FAKE.targetsOutline`
 
 Enables the Targets Outline tree view.
