@@ -47,6 +47,16 @@ Appends the '--attachdebugger' argument to fsac, this will allow you to attach a
 
 ---
 
+#### `FSharp.fsac.cachedTypeCheckCount`
+
+The [MemoryCacheOptions.SizeLimit](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.caching.memory.memorycacheoptions.sizelimit?view=dotnet-plat-ext-7.0) for caching typechecks.
+
+**Type:** `integer`
+
+**Default:** `200`
+
+---
+
 
 #### `FSharp.fsac.conserveMemory`
 
@@ -559,6 +569,32 @@ Logs additional information to F# output channel. This is equivalent to passing 
 **Type:** `bool`
 
 **Default:** `false`
+
+---
+
+
+#### `FSharp.notifications.trace`
+
+Enables more verbose notifications using System.Diagnostics.Activity to view traces from FSharp.Compiler.Service.
+
+**Type:** `bool`
+
+**Default:** `false`
+
+---
+#### `FSharp.notifications.traceNamespaces`
+
+The set of System.Diagnostics.Activity names to watch.
+
+**Type:** `string array`
+
+**Default:** 
+```json
+[
+    "BoundModel.TypeCheck",
+    "BackgroundCompiler."
+]
+```
 
 ---
 
