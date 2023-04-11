@@ -333,6 +333,16 @@ Enables a codefix that will suggest namespaces or module to open when a name is 
 
 ---
 
+#### `FSharp.addPrivateAccessModifier`
+
+Enables a codefix that adds a private access modifier
+
+**Type:** `bool`
+
+**Default:** `false`
+
+---
+
 #### `FSharp.enableTreeView`
 
 Enables the solution explorer view of the current workspace, which shows the workspace as MSBuild sees it
