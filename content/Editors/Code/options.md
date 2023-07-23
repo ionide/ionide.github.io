@@ -133,6 +133,19 @@ An array of log categories for FSAC to filter out. These can be found by viewing
 
 ---
 
+#### `FSharp.fsac.sourceTextImplementation`
+
+EXPERIMENTAL. Enables the use of a new source text implementation. This may have better memory characteristics. Requires restart.
+
+**Type:** `enum`
+
+**Default** `NamedText`
+
+**Possible Values:**
+* `NamedText` - The default source text implementation.
+* `RoslynSourceText` - A new source text implementation based on Roslyn's implementation. May perform better for bigger files.
+
+---
 #### `FSharp.workspaceModePeekDeepLevel`
 
 The deep level of directory hierarchy when searching for sln/projects
