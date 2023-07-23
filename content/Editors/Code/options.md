@@ -58,7 +58,7 @@ The [MemoryCacheOptions.SizeLimit](https://learn.microsoft.com/en-us/dotnet/api/
 ---
 
 
-#### `FSharp.fsac.conserveMemory`
+#### `FSharp.fsac.conserveMemory` (**Deprecated** use `FSharp.fsac.gc.conserveMemory`)
 
 This will set [DOTNET_GCConserveMemory](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory). Requires restart.
 
@@ -80,6 +80,35 @@ If FSAC is launched from a directory that has a global.json whose `sdk.version` 
 
 Otherwise no arguments are automatically supplied by Ionide.
 
+
+---
+
+#### `FSharp.fsac.gc.conserveMemory`
+
+Configures the garbage collector to [conserve memory](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory) at the expense of more frequent garbage collections and possibly longer pause times. Acceptable values are 0-9. Any non-zero value will allow the [Large Object Heap](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap) to be compacted automatically if it has too much fragmentation. Requires restart.
+
+**Type:** `integer` (0-9)
+
+---
+
+#### `FSharp.fsac.gc.heapCount`
+
+Limits the number of [heaps](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals#the-managed-heap) created by the garbage collector. Applies to server garbage collection only. See [Middle Ground between Server and Workstation GC](https://devblogs.microsoft.com/dotnet/middle-ground-between-server-and-workstation-gc/) for more details. This can allow FSAC to still benefit from Server garbage collection while still limiting the number of heaps. Requires restart
+
+**Type:** `integer` 
+
+**Default:** `2`
+
+---
+
+#### `FSharp.fsac.gc.server`
+
+Configures whether the application uses workstation garbage collection or server garbage collection. See [Workstation vs Server Garbage Collection](https://devblogs.microsoft.com/premier-developer/understanding-different-gc-modes-with-concurrency-visualizer/#workstation-gc-vs-server-gc) for more details. Workstation will use less memory but Server will have more throughput. Requires restart.
+
+
+**Type:** `boolean` 
+
+**Default**: `true`
 
 ---
 
@@ -796,11 +825,11 @@ Here are settings recommended for larger projects to help with performance.
     "FSharp.codeLenses.references.enabled": false,
     "FSharp.enableMSBuildProjectGraph": true,
     "FSharp.enableAdaptiveLspServer": true,
-    "FSharp.fsac.conserveMemory": true
+    "FSharp.fsac.gc.conserveMemory": 9
 }
 ```
 
 * `FSharp.codeLenses.references.enabled` - Recommend disabling this because it requires typechecks of your whole solution.
 * `FSharp.enableMSBuildProjectGraph` - Recommend enabling this because it can speed up project load times for larger [project graphs](https://github.com/dotnet/msbuild/blob/main/documentation/specs/static-graph.md#project-graph).
 * `FSharp.enableAdaptiveLspServer` - Recommended enabling this because it has more [stable state management](https://github.com/fsprojects/FSharp.Data.Adaptive).
-* `FSharp.fsac.conserveMemory` - Recommended enabling this because it will [tell dotnet](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory) compact [Large Object Heap](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap) allocations.
+* `FSharp.fsac.gc.conserveMemory` - Recommended enabling this because it will [tell dotnet](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory) compact [Large Object Heap](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap) allocations.
