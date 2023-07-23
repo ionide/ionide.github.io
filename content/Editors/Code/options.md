@@ -100,6 +100,15 @@ Limits the number of [heaps](https://learn.microsoft.com/en-us/dotnet/standard/g
 **Default:** `2`
 
 ---
+#### `Fsharp.fsac.gc.noAffinitize`
+
+Specifies whether to [affinitize](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#affinitize) garbage collection threads with processors. To affinitize a GC thread means that it can only run on its specific CPU.. Applies to server garbage collection only. See [GCNoAffinitize](https://learn.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/gcnoaffinitize-element#remarks) for more details. Requires restart.
+
+**Type:** `boolean`
+
+**Default:** `true`
+
+---
 
 #### `FSharp.fsac.gc.server`
 
