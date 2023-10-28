@@ -5,7 +5,7 @@ menu_order: 2
 
 # Our Sponsors
 
-Ionide couldn't be created without the support of [Lambda Factory](https://lambdafactory.io). If your company would be interested in supporting development of Ionide, or acquiring commercial support send us an email - lambda_factory@outlook.com.
+Ionide couldn't be created without the support of [Lambda Factory](https://lambdafactory.pl). If your company would be interested in supporting development of Ionide, or acquiring commercial support send us an email - lambda_factory@outlook.com.
 
 You can also support Ionide development on [Open Collective](https://opencollective.com/ionide). [![Open Collective](https://opencollective.com/ionide/donate/button.png?color=blue)](https://opencollective.com/ionide)
 
@@ -13,7 +13,7 @@ You can also support Ionide development on [Open Collective](https://opencollect
 
 <div align="center">
 
-<a href="https://lambdafactory.io"><img src="https://cdn-images-1.medium.com/max/332/1*la7_YvDFvrtA720P5bYWBQ@2x.png" alt="drawing" width="100"/></a>
+<a href="https://lambdafactory.pl"><img src="https://cdn-images-1.medium.com/max/332/1*la7_YvDFvrtA720P5bYWBQ@2x.png" alt="drawing" width="100"/></a>
 
 </div>
 
