@@ -30,3 +30,17 @@ Ionide plugins are activated when:
 * Opened workspace contains any `.fsproj`, `.fs`, or `.fsx` file
 
 * New `.fsproj`, `.fs`, or `.fsx` file is created in workspace that was not containing those files before.
+
+### Debug plugin activation
+
+Sometimes, Ionide will not start working properly after its installation due to some local misconfiguration. For example, if its process reaches the configured user limit on the number of inotify instances.
+
+Then, in order to better understand what is happening, you can check the Ionide logs at the VS Code program:
+
+<img src="/static/images/debug-vs-code-logs.png" />
+
+1. Click at the "View" button;
+2. Then, click at the "Output" and assert that the OUTPUT terminal will open;
+3. Finally, select the "Ionide" element at the drop down list.
+
+There you can find all the logs related to this extension.
