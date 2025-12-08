@@ -8,8 +8,7 @@ menu_order: 1
 **GitHub link:** [https://github.com/fsharp/FsAutoComplete](https://github.com/fsharp/FsAutoComplete)
 **License:** [Apache 2.0](https://github.com/fsharp/FsAutoComplete/blob/master/LICENSE)
 
-The `FsAutoComplete` project (`FSAC`) provides a backend service for rich editing or intellisense features for editors.
-It can be hosted using the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/).
+The `FsAutoComplete` project (`FSAC`) provides a backend service for rich editing or intellisense features for F#.
 
 Currently it is used by:
 
@@ -19,17 +18,28 @@ Currently it is used by:
 
 It's based on:
 
+* [LanguageServerProtocol](https://github.com/ionide/LanguageServerProtocol/) for LSP infrastructure.
 * [FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service/) for F# language info.
 * [FSharpLint](https://github.com/fsprojects/FSharpLint/) for the linter feature.
 * [Fantomas](https://github.com/fsprojects/fantomas) for the formatting feature.
-* [Dotnet.ProjInfo](Tools/dpi.html) for project/solution management.
+* [proj-info](https://github.com/ionide/proj-info) for project/solution management.
 * [FSharp.Analyzers.SDK](/Libraries/fsanalyzers.html) for custom project based analyzers
 
-## Required software
 
-FsAutoComplete runs on modern .NET (formerly .NET Core).
+The output of the FsAutoComplete project is `fsautocomplete`, an executable that is started as a separate process by a client. Client and server communicate using the [LSP](https://microsoft.github.io/language-server-protocol/) Json RPC protocol.
 
-* .NET SDK (Required: >= 6.0)
+In the most well-known case,
+
+- The client is VS Code with the `ionide-vscode-fsharp` extension.
+- At startup, the extension launches `fsautocomplete` and registers it in VS Code as language server for F#.
+- VS Code supports the language server protocol and therefore a lot of the fuctionality (like "go to symbol") works out of the box without further code in the extension.
+- Extension specific functionality (like needed for the solution explorer) is based on communication between the extension and the server via custom endpoints.
+
+FsAutoComplete contains the whole `FSharp.Compiler.Service` as a backend.
+
+FsAutoComplete is based on the LanguageServerProtocol library, which provides the infrastructure to receive requests from the editor, send notifications etc.
+
+
 
 ## Communication protocol
 
